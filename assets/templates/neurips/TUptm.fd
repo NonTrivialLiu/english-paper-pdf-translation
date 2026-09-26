@@ -1,0 +1,15 @@
+%% TUptm.fd —— IEEEtran 在类加载阶段就把 `ptm`（Times）设为 \rmdefault，
+%% 而 XeLaTeX 的 TU 编码下没有对应的字体定义文件，于是回退到 Latin Modern
+%% 并抛出四条 Font shape 未定义的警告。这里为 TU 编码补齐 ptm 家族，
+%% 直接指向 TeX Gyre Termes（Times 的 OpenType 克隆），使回退不再发生。
+\ProvidesFile{TUptm.fd}
+  [2026/09/17 v1.0 ptm family alias to TeX Gyre Termes for XeLaTeX]
+
+\DeclareFontFamily{TU}{ptm}{}
+\DeclareFontShape{TU}{ptm}{m}{n}{<-> "[texgyretermes-regular]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{ptm}{b}{n}{<-> "[texgyretermes-bold]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{ptm}{m}{it}{<-> "[texgyretermes-italic]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{ptm}{b}{it}{<-> "[texgyretermes-bolditalic]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{ptm}{m}{sc}{<-> "[texgyretermes-regular]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{ptm}{bx}{n}{<->ssub*ptm/b/n}{}
+\DeclareFontShape{TU}{ptm}{bx}{it}{<->ssub*ptm/b/it}{}

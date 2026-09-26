@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文 PDF 中译排版"
+  short_description: "完整翻译论文 PDF，交付中文 LaTeX 源稿与排版 PDF"
+  default_prompt: "用 $paper-pdf-latex-translation 完整中译这篇论文 PDF，保全图表与引用，并验收最终页面。"

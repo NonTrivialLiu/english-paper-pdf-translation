@@ -1,0 +1,15 @@
+%% TUphv.fd —— neurips_2026.sty 在类加载阶段把 \sfdefault 设为 phv（Helvetica），
+%% 而 XeLaTeX 的 TU 编码下没有对应的字体定义文件，标题块于是回退到 Latin Modern
+%% 并抛出字形未定义的警告。这里为 TU 编码补齐 phv 家族，指向 TeX Gyre Heros
+%% （Helvetica 的 OpenType 克隆）。
+\ProvidesFile{TUphv.fd}
+  [2026/09/25 v1.0 phv family alias to TeX Gyre Heros for XeLaTeX]
+
+\DeclareFontFamily{TU}{phv}{}
+\DeclareFontShape{TU}{phv}{m}{n}{<-> "[texgyreheros-regular]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{phv}{b}{n}{<-> "[texgyreheros-bold]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{phv}{m}{it}{<-> "[texgyreheros-italic]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{phv}{b}{it}{<-> "[texgyreheros-bolditalic]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{phv}{m}{sc}{<-> "[texgyreheros-regular]:mapping=tex-text"}{}
+\DeclareFontShape{TU}{phv}{bx}{n}{<->ssub*phv/b/n}{}
+\DeclareFontShape{TU}{phv}{bx}{it}{<->ssub*phv/b/it}{}
