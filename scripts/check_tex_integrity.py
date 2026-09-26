@@ -8,8 +8,8 @@ import re
 from pathlib import Path
 
 INPUT = re.compile(r"\\(?:input|include)\{([^{}]+)\}")
-FIGURE = re.compile(r"\\begin\{figure\*?\}")
-TABLE = re.compile(r"\\begin\{table\*?\}")
+FIGURE = re.compile(r"\\begin\{(?:figure\*?|wrapfigure\*?|sidewaysfigure\*?)\}")
+TABLE = re.compile(r"\\begin\{(?:table\*?|longtable|sidewaystable\*?)\}")
 EQUATION = re.compile(
     r"\\begin\{(?:equation|align|gather|multline|flalign|alignat|IEEEeqnarray)\}"
 )

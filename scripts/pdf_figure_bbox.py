@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""从 PDF 内容流精确计算图框（替代"网格 + 肉眼"定位）。
+"""从 PDF 内容流估计图框候选，供源页与最终图件核对。
 
 思路与 pdffigures2 一类工具一致：图注文本作为锚点，图形对象（矢量绘制 + 位图放置框）
-按竖直邻近关系聚合成块，取并集得到图框。输出为 PDF 点坐标，可直接交给裁切工具。
+按竖直邻近关系聚合成块，取并集得到候选图框。输出为 PDF 点坐标。
 
 子命令：
   list    列出每页图注与推算出的图框
@@ -173,7 +173,7 @@ def main() -> None:
     parser.add_argument("--pdf", type=Path, required=True)
     parser.add_argument("--pages", type=str, default=None, help="逗号分隔的页码，例如 2,3,5")
     sub = parser.add_subparsers(dest="command", required=True)
-    list_parser = sub.add_parser("list")
+    sub.add_parser("list")
     mark_parser = sub.add_parser("mark")
     mark_parser.add_argument("--dpi", type=int, default=110)
     mark_parser.add_argument("--out", type=Path, required=True)
